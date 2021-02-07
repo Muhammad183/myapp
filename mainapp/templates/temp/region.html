@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+{% block content %}
+{% load static %}
+  {% for form in forms %}
+     <img src="{{ form.image.url }}"><br>
+     {{ form.title }}<br>
+     {{ form.price }}<br>
+     {{ form.description }}
+  {% endfor %}
+{% endblock content %}
