@@ -15,9 +15,9 @@ def inner_page(request):
     return render(request, 'KnightOne/inner_page.html')
 
 def about(request):
-    return render(request, 'about/about.html')
-
-
+    forms = Region.objects.all()
+    return render(request, 'about/about.html', {'forms': forms})
+ 
 def buy_new(request):
     if request.method == "POST":
         form = BuyForm(request.POST)
@@ -26,7 +26,7 @@ def buy_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('home')
+            return redirect('/')
     else:
         form = BuyForm()
     return render(request, 'temp/buy.html', {'form': form})
