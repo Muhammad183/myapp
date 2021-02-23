@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import BuyForm
+from .forms import BuyForm, DocumentForm
 from django.utils import timezone
 from .models import Region
 
@@ -30,3 +30,16 @@ def buy_new(request):
     else:
         form = BuyForm()
     return render(request, 'temp/buy.html', {'form': form})
+
+
+def model_form_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = DocumentForm()
+    return render(request, 'reg.html', {
+        'form': form
+    })

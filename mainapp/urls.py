@@ -7,4 +7,5 @@ urlpatterns = [
     path('inner_page/', views.inner_page, name='inner_page'),
     path("buy/", views.buy_new, name="buy"),
     path("about/", views.about, name="about"),
+    path('model_form_upload', views.model_form_upload, name='model_form_upload'),
 ]
