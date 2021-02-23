@@ -1,2 +1,2 @@
-# myapp
-my first app in djnago 
+# in django myapp
+### my first app in djnago 
